@@ -24,11 +24,14 @@ def main():
         inp = inp.lower()
 
         if inp == 'quit':
+            with open('player_data.json', 'w') as f:
+                f.write(json.dumps(player.data))
             return
         elif inp == 'save':
             with open('player_data.json', 'w') as f:
                 f.write(json.dumps(player.data))
         elif inp == '\c clear':
+            # Console command for clearing player data
             player.data['name'] = ''
             player.data['health'] = 10
             player.data['max_health'] = 10
