@@ -6,7 +6,9 @@
 
 
 int main() {
-    while (1) {
+    Player player = playerInit();
+
+    while (0) {
         // game loop
         char input[20];
         fgets(input, 20, stdin);
@@ -15,7 +17,7 @@ int main() {
             input[i] = tolower(input[i]);
         }
 
-        if (strcmp(input, "quit") != 0) {
+        if (strcmp("quit\n", input) == 0) {
             return 0;
         }
     }

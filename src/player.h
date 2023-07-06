@@ -1,3 +1,6 @@
+#include <stdio.h>
+
+
 typedef struct player {
     float health;
     float maxHealth;
@@ -13,11 +16,18 @@ typedef struct player {
 
 Player playerInit() {
     FILE *fptr;
+    char reading[100];
     char read[100];
 
-    fptr = fopen("player_data.json", "r");
+    fptr = fopen("src/player_data.json", "r");
 
-    fgets(read, 100, fptr);
+    while (fgets(reading, 100, fptr)) {
+        strcat(read, reading);
+    }
+
+    fclose(fptr);
+
+    
 
     return (Player){0, 0, 0, 0, 0, 0, 0};
 }
