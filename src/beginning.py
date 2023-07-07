@@ -1,4 +1,5 @@
 from player import Player
+import menu as menu
 
 
 def beginning(player: Player):
@@ -13,11 +14,11 @@ def beginning(player: Player):
         inp = inp.lower()
 
         if 'leave' in inp:
-            outside()
+            outside(player)
         elif 'exit' in inp:
-            outside()
+            outside(player)
         elif 'outside' in inp:
-            outside()
+            outside(player)
         elif 'closet' in inp:
             if not sword_taken:
                 print('Inside the closet you find a sword. You take it.')
@@ -27,10 +28,13 @@ def beginning(player: Player):
             print('What do you do next?')
 
 
-def outside():
+def outside(player: Player):
     print('\033c', end='')
     print('You exit the hut. You look around and you see a waste land. There are piles of rubble where houses used to be before chaos befell the land. You never had neighbors but if you did they would live in those lots. You\'re father once new the people who made them their steads. Now he is tending to the small farm in front of the hut. Before you leave you should talk to him. What do you do?')
 
     while (True):
         inp = input()
         inp = inp.lower()
+
+        if 'menu' in inp:
+            menu.menu(player)
