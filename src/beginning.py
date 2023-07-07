@@ -1,5 +1,6 @@
 from player import Player
 import menu as menu
+import plains
 
 
 def beginning(player: Player):
@@ -32,9 +33,16 @@ def outside(player: Player):
     print('\033c', end='')
     print('You exit the hut. You look around and you see a waste land. There are piles of rubble where houses used to be before chaos befell the land. You never had neighbors but if you did they would live in those lots. You\'re father once new the people who made them their steads. Now he is tending to the small farm in front of the hut. Before you leave you should talk to him. What do you do?')
 
+    def dad():
+        print('You aproach your father. He looks at you breifly and says, "So this is the day you leave. Go on then and good luck." He goes back to work.')
+
     while (True):
         inp = input()
         inp = inp.lower()
 
-        if 'menu' in inp:
-            menu.menu(player)
+        if 'dad' in inp:
+            dad()
+        elif 'father' in inp:
+            dad()
+        elif 'leave' in inp:
+            plains.plains()
