@@ -24,8 +24,13 @@ def beginning(player: Player):
                 player.data['inventory'].append('sword')
             else:
                 print('Inside the closet you find nothing.')
+            print('What do you do next?')
 
 
 def outside():
-    pass
+    print('\033c', end='')
+    print('You exit the hut. You look around and you see a waste land. There are piles of rubble where houses used to be before chaos befell the land. You never had neighbors but if you did they would live in those lots. You\'re father once new the people who made them their steads. Now he is tending to the small farm in front of the hut. Before you leave you should talk to him. What do you do?')
 
+    while (True):
+        inp = input()
+        inp = inp.lower()
