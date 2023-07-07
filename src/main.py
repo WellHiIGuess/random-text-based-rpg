@@ -1,4 +1,5 @@
 from player import Player
+import beginning
 import json
 
 
@@ -19,30 +20,29 @@ def main():
             return
 
     # Game loop
-    while True:
-        inp = input()
-        inp = inp.lower()
+    if player.data['area'] == 'beginning':
+        beginning.beginning(player)
 
-        if inp == 'quit':
-            with open('player_data.json', 'w') as f:
-                f.write(json.dumps(player.data))
-            return
-        elif inp == 'save':
-            with open('player_data.json', 'w') as f:
-                f.write(json.dumps(player.data))
-        elif inp == '\c clear':
-            # Console command for clearing player data
-            player.data['name'] = ''
-            player.data['health'] = 10
-            player.data['max_health'] = 10
-            player.data['strength'] = 1
-            player.data['indurance'] = 1
-            player.data['dextarity'] = 1
-            player.data['vigor'] = 1
-            player.data['intelligence'] = 1
+        # if inp == 'quit':
+        #     with open('player_data.json', 'w') as f:
+        #         f.write(json.dumps(player.data))
+        #     return
+        # elif inp == 'save':
+        #     with open('player_data.json', 'w') as f:
+        #         f.write(json.dumps(player.data))
+        # elif inp == '\c clear':
+        #     # Console command for clearing player data
+        #     player.data['name'] = ''
+        #     player.data['health'] = 10
+        #     player.data['max_health'] = 10
+        #     player.data['strength'] = 1
+        #     player.data['indurance'] = 1
+        #     player.data['dextarity'] = 1
+        #     player.data['vigor'] = 1
+        #     player.data['intelligence'] = 1
 
-            with open('player_data.json', 'w') as f:
-                f.write(json.dumps(player.data))
+            # with open('player_data.json', 'w') as f:
+            #     f.write(json.dumps(player.data))
 
     return
 
