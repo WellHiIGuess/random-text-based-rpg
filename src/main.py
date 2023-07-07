@@ -1,11 +1,9 @@
-from player import Player
+from __global__ import player
 import beginning
 import json
 
 
 def main():
-    player = Player()
-
     if player.data['name'] == '':
         print('There is no player data. Would you like to make a new game?')
         inp = input()
@@ -21,7 +19,7 @@ def main():
 
     # Game loop
     if player.data['area'] == 'beginning':
-        beginning.beginning(player)
+        beginning.beginning()
 
         # if inp == 'quit':
         #     with open('player_data.json', 'w') as f:
